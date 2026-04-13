@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZR_BOOKSTORE_AKK'
+@MappingRole: true
+define role ZR_BOOKSTORE_AKK {
+  grant select on ZR_BOOKSTORE_AKK
+  where TRUE;
+}

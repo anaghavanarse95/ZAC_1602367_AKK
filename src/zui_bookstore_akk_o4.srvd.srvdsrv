@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_BOOKSTORE_AKK'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_BOOKSTORE_AKK'
+  }
+}
+define service ZUI_BOOKSTORE_AKK_O4 provider contracts odata_v4_ui {
+  expose ZC_BOOKSTORE_AKK as BookStore_AKK;
+}

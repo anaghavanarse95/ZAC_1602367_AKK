@@ -1,0 +1,11 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "SAP Object Node Type ZBOOKSTORE_AKK",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "name": "ZBookStore_AKK",
+  "sapObjectType": "ZBookStore_AKK",
+  "rootNode": true
+}

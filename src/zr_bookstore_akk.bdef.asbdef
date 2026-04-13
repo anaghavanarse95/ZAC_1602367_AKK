@@ -1,0 +1,57 @@
+managed implementation in class ZBP_R_BOOKSTORE_AKK unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_BOOKSTORE_AKK alias BookStore_AKK
+persistent table ZBOOKSTOREAKK
+extensible
+draft table ZBOOKSTOREAKK_D
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master( global )
+{
+  field ( readonly )
+   UUID,
+   LocalCreatedBy,
+   LocalCreatedAt,
+   LocalLastChangedBy,
+   LocalLastChangedAt,
+   LastChangedAt;
+   field( mandatory ) Title;  //anagha
+   field ( numbering : managed )
+   UUID;
+
+  create;
+  update;
+  delete;
+  validation titleName on save {create ; update ; field Title; } //anagha
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare
+  {validation titleName; } //anagha
+
+  determination calDate on save { create; update ; field PublishedDate;}
+
+  mapping for ZBOOKSTOREAKK corresponding extensible
+  {
+    UUID = UUID;
+    BookStoreID = BOOK_STORE_ID;
+    Title = TITLE;
+    Author = AUTHOR;
+    Price = PRICE;
+    PublishedDate = PUBLISHED_DATE;
+    Stock = STOCK;
+    DiscountedPrice = DISCOUNTED_PRICE;
+    BookAge = BOOK_AGE;
+    PriceCurr = PRICE_CURR;
+    LocalCreatedBy = LOCAL_CREATED_BY;
+    LocalCreatedAt = LOCAL_CREATED_AT;
+    LocalLastChangedBy = LOCAL_LAST_CHANGED_BY;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+    LastChangedAt = LAST_CHANGED_AT;
+  }
+
+}
